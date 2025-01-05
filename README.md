@@ -44,3 +44,11 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+# node -v should be v22.12.0
+# npm -v should be 10.9.0
+# npx -v should be 10.9.0
+# yarn -v should be 1.22.22
+# yarn install
+# yarn start
+
