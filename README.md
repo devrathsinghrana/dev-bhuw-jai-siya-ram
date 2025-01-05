@@ -51,4 +51,5 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 # yarn -v should be 1.22.22
 # yarn install
 # yarn start
+# yarn storybook to run storybook
 
