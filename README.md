@@ -50,6 +50,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 # npx -v should be 10.9.0
 # yarn -v should be 1.22.22
 # yarn install
-# yarn start
+# yarn start to run project
 # yarn storybook to run storybook
 
