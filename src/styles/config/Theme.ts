@@ -2,8 +2,6 @@ import DARK_Base_Global from "../theme/dark/GlobalStyles";
 import DARK_Base_Theme from "../theme/dark/Theme";
 import LIGHT_Base_Global from "../theme/light/GlobalStyles";
 import LIGHT_Base_Theme from "../theme/light/Theme";
-import WLB_Base_Global from "../theme/wlb/GlobalStyles";
-import WLB_Base_Theme from "../theme/wlb/Theme";
 
 function Theme(theme: string) {
   switch (theme?.toLowerCase()) {
@@ -19,8 +17,8 @@ function Theme(theme: string) {
       };
     default:
       return {
-        global: WLB_Base_Global,
-        theme: WLB_Base_Theme,
+        global: LIGHT_Base_Global,
+        theme: LIGHT_Base_Theme,
       };
   }
 }
