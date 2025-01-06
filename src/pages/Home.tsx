@@ -1,7 +1,7 @@
 import React from "react";
 import Styled from "../styles/pageStyle/home.styled";
 import Container from "../components/ui/Container";
-import { Testimonial } from "../components/ui/PageSlider";
+import { Testimonial } from "../components/slider/PageSlider";
 
 const Home = () => {
   const imageCommonUrl =

@@ -1,17 +1,32 @@
 // src/router/Route.tsx
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-import MainLayout from "../layouts/PageContainer"; // Import the layout
+import { createBrowserRouter, RouteObject } from "react-router-dom";
+import MainLayout from "../layouts/PageContainer";
 import HomePage from "../pages/Home";
 import LoginPage from "../pages/Login";
 
-const AppRoutes = () => (
-  <Routes>
-    <Route path="/" element={<MainLayout />}>
-      <Route index element={<HomePage />} />
-      <Route path="login" element={<LoginPage />} />
-    </Route>
-  </Routes>
-);
+const NotFound: React.FC = () => <h1>404 - Page Not Found</h1>;
 
-export default AppRoutes;
+const routes: RouteObject[] = [
+  {
+    path: "/",
+    element: <MainLayout />,
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+      {
+        path: "/login",
+        element: <LoginPage />,
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <NotFound />,
+  },
+];
+
+// Create a router instance
+export const router = createBrowserRouter(routes);
