@@ -1,7 +1,7 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider, { Settings } from "react-slick";
-import { forwardRef, ReactNode } from "react";
+import { forwardRef } from "react";
 import images from "../../assets/images";
 
 type SliderComponentProps = {
