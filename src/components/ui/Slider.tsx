@@ -57,7 +57,7 @@ const SliderComponent = forwardRef<Slider, SliderComponentProps>(
       );
     };
 
-    const dotsArray = (dots: ReactNode): Element => {
+    const dotsArray = (dots: any): any => {
       const dotArray = Array.isArray(dots) ? dots : [dots];
       return (
         <ul className="slick-dots" style={{ display: "block" }}>
@@ -70,7 +70,7 @@ const SliderComponent = forwardRef<Slider, SliderComponentProps>(
             </li>
           ))}
         </ul>
-      ) as unknown as Element; // Cast to Element for compatibility
+      );
     };
 
     const baseSettings: Settings = {
