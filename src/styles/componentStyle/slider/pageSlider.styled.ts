@@ -8,7 +8,7 @@ type TestimonialProps = {
 export const Styled = {
   SliderContainer: styled.div`
     ${(props) => {
-      const slider = props.theme.component.Slider;
+      const slider = props.theme.components.slider.Slider;
       return css`
         .wrapper {
           position: ${slider.wrap_pos};
@@ -182,7 +182,7 @@ export const Styled = {
   `,
   Testimonial: styled.div<TestimonialProps>`
     ${(props) => {
-      const slider = props.theme.component.Slider;
+      const slider = props.theme.components.slider.Slider;
       return css`
         .dot-top .slick-dots {
           ${Device.laptopM} {

@@ -1,6 +1,5 @@
 import { Color } from "./Constants";
-import Btn from "./variables/common/buttons";
-import Slider from "./variables/components/slider";
+import Slider from "./variables/components/slider/slider";
 
 const LIGHT_Base_Theme = {
   key: "light",
@@ -11,8 +10,15 @@ const LIGHT_Base_Theme = {
   common: {
     color: Color.black,
     backgroundColor: Color.white,
-    Btn,
   },
+  components: {
+    slider: {
+      Slider,
+    },
+    ui: {},
+  },
+  layouts: {},
+  pages: {},
   component: {
     Slider,
   },

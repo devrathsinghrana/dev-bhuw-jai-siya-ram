@@ -1,4 +1,5 @@
-import { Color, FontWeight } from "../../Constants";
+import { Color, FontWeight } from "../../../Constants";
+
 
 const Slider = {
   wrap_pos: "relative",

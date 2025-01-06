@@ -1,6 +1,6 @@
 import React from "react";
 import SliderComponent from "./Slider";
-import { Styled } from "../../styles/componentStyle/ui/pageSlider.styled";
+import { Styled } from "../../styles/componentStyle/slider/pageSlider.styled";
 
 interface TestimonialContent {
   userComment: string | TrustedHTML;
