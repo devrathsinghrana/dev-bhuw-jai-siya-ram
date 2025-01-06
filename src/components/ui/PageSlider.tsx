@@ -5,6 +5,11 @@ import { Styled } from "../../styles/componentStyle/ui/pageSlider.styled";
 interface TestimonialContent {
   userComment: string;
   userName: string;
+  quotesReq?: boolean;
+  reviewerData?: any;
+  reviewRating?: any;
+  ratingDetails?: any;
+  trustpilot?: any;
 }
 
 interface TestimonialProps {
@@ -17,7 +22,7 @@ interface TestimonialProps {
   trackLeftClick?: () => void;
   left_arrow?: React.ReactNode;
   right_arrow?: React.ReactNode;
-  arrow?: boolean;
+  arrow?: string;
 }
 
 export const Testimonial: React.FC<TestimonialProps> = (props) => {

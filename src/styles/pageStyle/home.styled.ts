@@ -5,7 +5,7 @@ export const PageStyle = createGlobalStyle`
 `;
 
 const Styled = {
-  HeroSection: styled.section`
+  TestimonialSection: styled.section`
     ${css``}
   `,
 };
