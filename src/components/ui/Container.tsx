@@ -4,6 +4,7 @@ interface ContainerProps {
   hasColumnsView?: boolean;
   id?: string;
   contClass?: string;
+  contBodyClass?: string;
   children: React.ReactNode;
 }
 
@@ -12,8 +13,9 @@ const Container: React.FC<ContainerProps> = ({
   id,
   contClass = "",
   children,
+  contBodyClass = "",
 }) => {
-  const view = hasColumnsView ? "col-view" : "";
+  const view = hasColumnsView ? `col-view ${contBodyClass}` : contBodyClass;
   return (
     <div id={id} className={`container ${contClass}`}>
       <div className={`container-body ${view}`}>{children}</div>

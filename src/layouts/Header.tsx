@@ -7,7 +7,7 @@ const Header = () => {
   const { logo } = images;
   return (
     <Styled.Header>
-      <Container>
+      <Container contBodyClass="header-cont-body">
         <img src={logo} alt="logo" height={25} width={25} />
       </Container>
     </Styled.Header>
