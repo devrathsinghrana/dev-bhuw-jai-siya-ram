@@ -7,15 +7,16 @@ import Theme from "./styles/config/Theme";
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState("light");
-
   const ActiveTheme = Theme(currentTheme);
+  const GlobalStylesTheme = ActiveTheme.global;
 
   return (
-    <ThemeProvider theme={ActiveTheme.theme}>
-      <BrowserRouter>
+    <BrowserRouter>
+      <ThemeProvider theme={ActiveTheme.theme}>
+        <GlobalStylesTheme />
         <AppRoutes />
-      </BrowserRouter>
-    </ThemeProvider>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
 
