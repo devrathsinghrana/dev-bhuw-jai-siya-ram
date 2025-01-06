@@ -1,16 +1,15 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider, { Settings } from "react-slick";
-import { forwardRef } from "react";
+import { forwardRef, ReactNode } from "react";
 import images from "../../assets/images";
 
 type SliderComponentProps = {
-  left_arrow?: any;
-  right_arrow?: any;
-  arrow?: any;
-  setCurrentSlide?: (currentSlide: number) => void;
-  slideData?: any;
-  settings?: any;
+  left_arrow?: string;
+  right_arrow?: string;
+  arrow?: string;
+  slideData: React.ReactNode | ReactNode;
+  settings?: object;
 };
 
 type ArrowProps = {
@@ -27,7 +26,6 @@ const SliderComponent = forwardRef<Slider, SliderComponentProps>(
       left_arrow,
       right_arrow,
       arrow,
-      setCurrentSlide,
       slideData,
       settings: customSettings,
     } = props;
@@ -36,9 +34,6 @@ const SliderComponent = forwardRef<Slider, SliderComponentProps>(
       currentSlide,
       ...rest
     }: ArrowProps): JSX.Element => {
-      if (setCurrentSlide && currentSlide !== undefined) {
-        setCurrentSlide(currentSlide);
-      }
       return (
         <button title="left arrow" {...rest}>
           {left_arrow ? images[left_arrow] : arrow ? images[arrow] : null}
@@ -47,9 +42,6 @@ const SliderComponent = forwardRef<Slider, SliderComponentProps>(
     };
 
     const NextArrow = ({ currentSlide, ...rest }: ArrowProps): JSX.Element => {
-      if (setCurrentSlide && currentSlide !== undefined) {
-        setCurrentSlide(currentSlide);
-      }
       return (
         <button title="right arrow" {...rest}>
           {right_arrow ? images[right_arrow] : arrow ? images[arrow] : null}
@@ -57,11 +49,11 @@ const SliderComponent = forwardRef<Slider, SliderComponentProps>(
       );
     };
 
-    const dotsArray = (dots: any): any => {
+    const dotsArray = (dots: ReactNode):JSX.Element => {
       const dotArray = Array.isArray(dots) ? dots : [dots];
       return (
         <ul className="slick-dots" style={{ display: "block" }}>
-          {dotArray.map((dot: any, index: number) => (
+          {dotArray.map((dot, index: number) => (
             <li
               key={index}
               className={`slick-dot ${dot?.props?.className || ""}`}

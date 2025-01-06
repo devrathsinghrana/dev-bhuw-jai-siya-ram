@@ -11,7 +11,6 @@ const Home = () => {
       <Container>
         <Testimonial
           customClass="arrow-top dot-top custom-arrows"
-          sliderType="testimonial"
           settings={{
             swipe: true,
             centerMode: true,

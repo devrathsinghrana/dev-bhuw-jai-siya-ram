@@ -3,13 +3,13 @@ import SliderComponent from "./Slider";
 import { Styled } from "../../styles/componentStyle/ui/pageSlider.styled";
 
 interface TestimonialContent {
-  userComment: string;
-  userName: string;
+  userComment: string | TrustedHTML;
+  userName?: string;
   quotesReq?: boolean;
-  reviewerData?: any;
-  reviewRating?: any;
-  ratingDetails?: any;
-  trustpilot?: any;
+  reviewerData?: object;
+  reviewRating?: string;
+  ratingDetails?: object;
+  trustpilot?: object;
 }
 
 interface TestimonialProps {
@@ -17,11 +17,8 @@ interface TestimonialProps {
   quotes_img?: string; // Add the appropriate type for your quotes_img
   customClass?: string;
   settings?: object; // Replace with a more specific type if possible
-  sliderType?: any;
-  trackRightClick?: () => void;
-  trackLeftClick?: () => void;
-  left_arrow?: React.ReactNode;
-  right_arrow?: React.ReactNode;
+  left_arrow?: string;
+  right_arrow?: string;
   arrow?: string;
 }
 
