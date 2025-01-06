@@ -81,6 +81,17 @@ const DARK_Base_Global = createGlobalStyle`
             display:block;
         }
     }
+
+    .col-view{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        ${Device.tablet} {
+            flex-direction: row;
+        }
+    }
     
     
 `;
