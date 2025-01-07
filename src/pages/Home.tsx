@@ -2,90 +2,70 @@ import React from "react";
 import Styled from "../styles/pageStyle/home.styled";
 import Container from "../components/ui/Container";
 import { Testimonial } from "../components/slider/PageSlider";
+import images from "../assets/images";
+import ContentItems from "../components/ui/ContentItems";
 
 const Home = () => {
-  const imageCommonUrl =
-    "https://qa-assets.moncvparfait.fr/blobimages/mpintl-lp";
+
+  const { quote, reviewer1, reviewer2 } = images;
+
+  const cData = {
+    testimonialContent: [
+      {
+        quotesReq: true,
+        reviewerData: {
+          src: reviewer1,
+          width: "388",
+          height: "432",
+          objectFit: "contain",
+          alt: "Luc J.",
+        },
+        userName: "Luc J.",
+        userComment:
+          "Successful experience. My experience with monCVparfait was very conclusive with many returns from employers interested in my CV.",
+      },
+      {
+        quotesReq: true,
+        reviewerData: {
+          src: reviewer2,
+          width: "388",
+          height: "432",
+          objectFit: "contain",
+          alt: "Tim L.",
+        },
+        userName: "Tim L.",
+        userComment:
+          "Successful experience. My experience with monCVparfait was very conclusive with many returns from employers interested in my CV.",
+      },
+    ],
+    testimonialSliderSettings: {
+      swipe: true,
+      centerMode: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      centerPadding: "20px",
+      responsive: [
+        {
+          breakpoint: 575,
+          settings: {
+            centerPadding: 0,
+          },
+        },
+      ],
+    },
+  };
+
   return (
     <Styled.TestimonialSection>
       <Container>
+        <ContentItems heading={`Thousands of satisfied users`}></ContentItems>
         <Testimonial
           customClass="arrow-top dot-top custom-arrows"
-          settings={{
-            swipe: true,
-            centerMode: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            centerPadding: "20px",
-            responsive: [
-              {
-                breakpoint: 575,
-                settings: {
-                  centerPadding: 0,
-                },
-              },
-            ],
-          }}
-          quotes_img={`${imageCommonUrl}/mfr/images/quote.svg`}
-          testimonialContent={[
-            {
-              quotesReq: true,
-              reviewerData: {
-                src: `${imageCommonUrl}/mfr/mfr01/images/reviewer1.png`,
-                width: "388",
-                height: "432",
-                objectFit: "contain",
-                alt: "Lcuky Man",
-              },
-              userName: "Lcuky Man",
-              reviewRating: "5",
-              ratingDetails: {
-                src: `${imageCommonUrl}/mfr/images/stars-icon.png`,
-                height: "18",
-                width: "96",
-                layout: "fixed",
-                alt: "star rating",
-              },
-              trustpilot: {
-                src: `${imageCommonUrl}/mfr/images/trustpilot-star.png`,
-                height: "25",
-                width: "102",
-                layout: "fixed",
-                alt: "trustpilot alt",
-              },
-              userComment:
-                "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore explicabo illo, mollitia voluptates nihil ratione vel dolorum, est nesciunt enim soluta voluptatibus omnis eligendi in fuga voluptas sed. Eveniet, minus.",
-            },
-            {
-              quotesReq: true,
-              reviewerData: {
-                src: `${imageCommonUrl}/mfr/mfr01/images/reviewer2.png`,
-                width: "326",
-                height: "416",
-                objectFit: "contain",
-                alt: "Cathy Mathews",
-              },
-              userName: "Cathy Mathews",
-              reviewRating: "5",
-              ratingDetails: {
-                src: `${imageCommonUrl}/mfr/images/stars-icon.png`,
-                height: "18",
-                width: "96",
-                layout: "fixed",
-                alt: "star rating",
-              },
-              trustpilot: {
-                src: `${imageCommonUrl}/mfr/images/trustpilot-star.png`,
-                height: "25",
-                width: "102",
-                layout: "fixed",
-                alt: "trustpilot alt",
-              },
-              userComment:
-                " Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore explicabo illo, mollitia voluptates nihil ratione vel dolorum, est nesciunt enim soluta voluptatibus omnis eligendi in fuga voluptas sed. Eveniet, minus.",
-            },
-          ]}
-          arrow="long_arrow"
+          sliderType="testimonial"
+          settings={cData.testimonialSliderSettings}
+          quotes_img={quote}
+          testimonialContent={cData.testimonialContent}
+          arrow="longArrow"
         ></Testimonial>
       </Container>
     </Styled.TestimonialSection>

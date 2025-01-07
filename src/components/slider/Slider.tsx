@@ -5,16 +5,16 @@ import { forwardRef, ReactNode } from "react";
 import images from "../../assets/images";
 
 type SliderComponentProps = {
-  left_arrow?: string;
-  right_arrow?: string;
-  arrow?: string;
+  left_arrow?: string | undefined;
+  right_arrow?: string | undefined;
+  arrow?: string | undefined;
   slideData: React.ReactNode | ReactNode;
   settings?: object;
+  sliderType?: string;
 };
 
 type ArrowProps = {
   currentSlide?: number;
-  slideCount?: number;
   onClick?: () => void;
   className?: string;
   style?: React.CSSProperties;
@@ -36,7 +36,16 @@ const SliderComponent = forwardRef<Slider, SliderComponentProps>(
     }: ArrowProps): JSX.Element => {
       return (
         <button title="left arrow" {...rest}>
-          {left_arrow ? images[left_arrow] : arrow ? images[arrow] : null}
+          <img
+            src={
+              left_arrow
+                ? images[left_arrow]
+                : arrow
+                ? images[arrow]
+                : undefined
+            }
+            alt="left arrow icon"
+          />
         </button>
       );
     };
@@ -44,18 +53,27 @@ const SliderComponent = forwardRef<Slider, SliderComponentProps>(
     const NextArrow = ({ currentSlide, ...rest }: ArrowProps): JSX.Element => {
       return (
         <button title="right arrow" {...rest}>
-          {right_arrow ? images[right_arrow] : arrow ? images[arrow] : null}
+          <img
+            src={
+              right_arrow
+                ? images[right_arrow]
+                : arrow
+                ? images[arrow]
+                : undefined
+            }
+            alt="right arrow icon"
+          />
         </button>
       );
     };
 
-    const dotsArray = (dots: ReactNode):JSX.Element => {
+    const dotsArray = (dots: ReactNode): JSX.Element => {
       const dotArray = Array.isArray(dots) ? dots : [dots];
       return (
         <ul className="slick-dots" style={{ display: "block" }}>
           {dotArray.map((dot, index: number) => (
             <li
-              key={index}
+              key={`${props.sliderType}-${index}`}
               className={`slick-dot ${dot?.props?.className || ""}`}
             >
               {dot?.props?.children}

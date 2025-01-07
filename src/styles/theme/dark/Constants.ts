@@ -1,16 +1,12 @@
-export const Color = {
-  // White Shades
-  white: "#fff",
+import {
+  Color as ColorBase,
+  FontWeight as FontWeightBase,
+} from "../base/Constants";
 
-  // Black Shades
-  black: "#000",
+export const Color = {
+  ...ColorBase,
 };
 
 export const FontWeight = {
-  weightNormal: "400",
-  weightRegular: "500",
-  weightSemiBold: "600",
-  weightBold: "700",
-  weightHeavy: "800",
-  weightSolid: "900",
+  ...FontWeightBase,
 };

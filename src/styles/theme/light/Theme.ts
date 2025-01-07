@@ -10,7 +10,7 @@ const LIGHT_Base_Theme = {
     Secondary: "'Domine', serif",
   },
   common: {
-    color: Color.black,
+    color: Color.midnightBlue,
     backgroundColor: Color.white,
   },
   components: {

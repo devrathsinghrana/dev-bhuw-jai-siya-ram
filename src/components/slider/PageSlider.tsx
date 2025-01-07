@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import SliderComponent from "./Slider";
 import { Styled } from "../../styles/componentStyle/slider/pageSlider.styled";
@@ -16,6 +17,7 @@ interface TestimonialProps {
   testimonialContent?: TestimonialContent[];
   quotes_img?: string; // Add the appropriate type for your quotes_img
   customClass?: string;
+  sliderType?: string;
   settings?: object; // Replace with a more specific type if possible
   left_arrow?: string;
   right_arrow?: string;
@@ -26,9 +28,15 @@ export const Testimonial: React.FC<TestimonialProps> = (props) => {
   const DisplayContent: React.FC<TestimonialContent> = ({
     userComment,
     userName,
+    reviewerData,
+    quotesReq,
   }) => {
     return (
       <div className="testimonial-container">
+        <img
+          className={`profile-container ${quotesReq ? "quotes-bg" : ""}`}
+          {...reviewerData}
+        />
         <div className="review-container">
           <p
             className="user-comment"
@@ -48,6 +56,8 @@ export const Testimonial: React.FC<TestimonialProps> = (props) => {
         <DisplayContent
           userComment={item.userComment}
           userName={item.userName}
+          reviewerData={item.reviewerData}
+          quotesReq={item.quotesReq}
         />
       </div>
     );
@@ -62,6 +72,7 @@ export const Testimonial: React.FC<TestimonialProps> = (props) => {
           left_arrow={props.left_arrow}
           right_arrow={props.right_arrow}
           arrow={props.arrow}
+          sliderType={props.sliderType}
         />
       </Styled.SliderContainer>
     </Styled.Testimonial>
