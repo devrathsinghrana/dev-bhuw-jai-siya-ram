@@ -1,10 +1,8 @@
 import { Color } from "./Constants";
 import Slider from "./variables/components/slider/slider";
-import Base_Theme from "../base/Theme";
 
-const DARK_Base_Theme = {
-  ...Base_Theme,
-  key: "dark",
+const Base_Theme = {
+  key: "light",
   font: {
     Primary: "'Nunito' , sans-serif",
     Secondary: "'Domine', serif",
@@ -26,4 +24,4 @@ const DARK_Base_Theme = {
   },
 };
 
-export default DARK_Base_Theme;
+export default Base_Theme;
