@@ -60,8 +60,7 @@ const Slider = {
   testi_cont_pd: "40px 0 0",
   testi_cont_gap: "95px",
   test_cont_fDir_tab: "row",
-  test_cont_pd_tab: "10px 0 0",
-  testi_cont_gap_tab: 0,
+  test_cont_pd_tab: "10px 10px 0",
   testi_profile_mg: "auto",
 
   testi_profile_width: "40%",
@@ -76,9 +75,6 @@ const Slider = {
   testi_arrow_bdrRds: "50%",
   testi_arrow_clr: Color.white,
 
-  quote_bgsize: "40%",
-  quote_bgsize_tab: "auto",
-  quote_bg_pos: "30% 0",
   review_width: "60%",
 
   review_fstyle: "italic",

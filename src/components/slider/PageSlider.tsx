@@ -6,7 +6,6 @@ import { Styled } from "../../styles/componentStyle/slider/pageSlider.styled";
 interface TestimonialContent {
   userComment: string | TrustedHTML;
   userName?: string;
-  quotesReq?: boolean;
   reviewerData?: object;
   reviewRating?: string;
   ratingDetails?: object;
@@ -15,7 +14,20 @@ interface TestimonialContent {
 
 interface TestimonialProps {
   testimonialContent?: TestimonialContent[];
-  quotes_img?: string; // Add the appropriate type for your quotes_img
+  customClass?: string;
+  sliderType?: string;
+  settings?: object; // Replace with a more specific type if possible
+  left_arrow?: string;
+  right_arrow?: string;
+  arrow?: string;
+}
+
+interface BannerContent {
+  bannerData?: object;
+}
+
+interface BannerProps {
+  bannerContent?: BannerContent[];
   customClass?: string;
   sliderType?: string;
   settings?: object; // Replace with a more specific type if possible
@@ -29,14 +41,10 @@ export const Testimonial: React.FC<TestimonialProps> = (props) => {
     userComment,
     userName,
     reviewerData,
-    quotesReq,
   }) => {
     return (
       <div className="testimonial-container">
-        <img
-          className={`profile-container ${quotesReq ? "quotes-bg" : ""}`}
-          {...reviewerData}
-        />
+        <img className={`profile-container`} {...reviewerData} />
         <div className="review-container">
           <p
             className="user-comment"
@@ -57,14 +65,13 @@ export const Testimonial: React.FC<TestimonialProps> = (props) => {
           userComment={item.userComment}
           userName={item.userName}
           reviewerData={item.reviewerData}
-          quotesReq={item.quotesReq}
         />
       </div>
     );
   });
 
   return (
-    <Styled.Testimonial quotes={props.quotes_img}>
+    <Styled.Testimonial>
       <Styled.SliderContainer className={props.customClass}>
         <SliderComponent
           slideData={TestimonialData}
@@ -76,5 +83,39 @@ export const Testimonial: React.FC<TestimonialProps> = (props) => {
         />
       </Styled.SliderContainer>
     </Styled.Testimonial>
+  );
+};
+
+export const BannerSlider: React.FC<BannerProps> = (props) => {
+  const DisplayContent: React.FC<BannerContent> = ({ bannerData }) => {
+    return (
+      <div className="banner-container">
+        <img className={`banner-container`} {...bannerData} />
+      </div>
+    );
+  };
+
+  const BannerSlides = props?.bannerContent?.map((item, index) => {
+    console.log(item);
+    return (
+      <div className="banner-wrapper" key={`banner-${index}`}>
+        <DisplayContent bannerData={item.bannerData} />
+      </div>
+    );
+  });
+
+  return (
+    <Styled.Banner>
+      <Styled.SliderContainer className={props.customClass}>
+        <SliderComponent
+          slideData={BannerSlides}
+          settings={props.settings}
+          left_arrow={props.left_arrow}
+          right_arrow={props.right_arrow}
+          arrow={props.arrow}
+          sliderType={props.sliderType}
+        />
+      </Styled.SliderContainer>
+    </Styled.Banner>
   );
 };

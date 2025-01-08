@@ -1,10 +1,6 @@
 import styled, { css } from "styled-components";
 import Device from "../../config/Device";
 
-type TestimonialProps = {
-  quotes?: string;
-};
-
 export const Styled = {
   SliderContainer: styled.div`
     ${(props) => {
@@ -120,6 +116,7 @@ export const Styled = {
           }
           .slick-prev {
             left: ${slider.slick_prev_left};
+            transform: rotate(180deg);
           }
         }
 
@@ -180,7 +177,7 @@ export const Styled = {
       `;
     }}
   `,
-  Testimonial: styled.div<TestimonialProps>`
+  Testimonial: styled.div`
     ${(props) => {
       const slider = props.theme.components.slider.Slider;
       return css`
@@ -229,14 +226,6 @@ export const Styled = {
             }
           }
         }
-        .quotes-bg {
-          background: url(${props.quotes}) no-repeat;
-          background-size: ${slider.quote_bgsize};
-          ${Device.laptopM} {
-            background-size: ${slider.quote_bgsize_tab};
-            background-position: ${slider.quote_bg_pos};
-          }
-        }
         .review-container {
           ${Device.laptopM} {
             width: ${slider.review_width};
@@ -275,5 +264,10 @@ export const Styled = {
         }
       `;
     }}
+  `,
+  Banner: styled.div`
+  ${css`
+  
+    `}
   `,
 };

@@ -58,6 +58,9 @@ const Styled = {
       }
     `}
   `,
+  BannerSection: styled.section`
+    ${css``}
+  `,
 };
 
 export default Styled;

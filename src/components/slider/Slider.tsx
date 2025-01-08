@@ -2,7 +2,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider, { Settings } from "react-slick";
 import { forwardRef, ReactNode } from "react";
-import images from "../../assets/images";
+import { ICONS } from "../../assets/Icons/Icons";
 
 type SliderComponentProps = {
   left_arrow?: string | undefined;
@@ -36,16 +36,7 @@ const SliderComponent = forwardRef<Slider, SliderComponentProps>(
     }: ArrowProps): JSX.Element => {
       return (
         <button title="left arrow" {...rest}>
-          <img
-            src={
-              left_arrow
-                ? images[left_arrow]
-                : arrow
-                ? images[arrow]
-                : undefined
-            }
-            alt="left arrow icon"
-          />
+          {left_arrow ? ICONS[left_arrow] : arrow ? ICONS[arrow] : null}
         </button>
       );
     };
@@ -53,16 +44,7 @@ const SliderComponent = forwardRef<Slider, SliderComponentProps>(
     const NextArrow = ({ currentSlide, ...rest }: ArrowProps): JSX.Element => {
       return (
         <button title="right arrow" {...rest}>
-          <img
-            src={
-              right_arrow
-                ? images[right_arrow]
-                : arrow
-                ? images[arrow]
-                : undefined
-            }
-            alt="right arrow icon"
-          />
+          {right_arrow ? ICONS[right_arrow] : arrow ? ICONS[arrow] : null}
         </button>
       );
     };
