@@ -9,7 +9,6 @@ interface TestimonialContent {
   reviewerData?: object;
   reviewRating?: string;
   ratingDetails?: object;
-  trustpilot?: object;
 }
 
 interface TestimonialProps {
